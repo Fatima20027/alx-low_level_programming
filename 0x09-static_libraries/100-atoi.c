@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+int _atoi(char *s)
 
-char *_strpbrk(char *s, char *accept)
 {
-    return strpbrk(s, accept);
+    return atoi(s);
 }
+
 
