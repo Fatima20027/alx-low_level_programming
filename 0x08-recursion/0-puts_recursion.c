@@ -12,7 +12,7 @@ void _puts_recursion(char *s)
 	/* Base condition for the recursive function */
 	if (*s != '\0')
 	{
-        /*
+	/*
 	* Print the current character of the string.
 	* Then, make a recursive call to print the rest of the string.
 	*/
