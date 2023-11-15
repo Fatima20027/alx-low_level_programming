@@ -1,4 +1,3 @@
-
 #include "main.h"
 
 /**
@@ -10,18 +9,18 @@
 */
 void _puts_recursion(char *s)
 {
-    /* Base condition for the recursive function */
-    if (*s != '\0')
-    {
+	/* Base condition for the recursive function */
+	if (*s != '\0')
+	{
         /*
-    * Print the current character of the string.
-    * Then, make a recursive call to print the rest of the string.
-    */
-        _putchar(*s);/*s[0]*/
-        _puts_recursion(s + 1);/*going from a character to another */
-    }
-    else
-    {
-        return;
-    }
+	* Print the current character of the string.
+	* Then, make a recursive call to print the rest of the string.
+	*/
+	_putchar(*s);/*s[0]*/
+	_puts_recursion(s + 1);/*going from a character to another */
+	}
+	else
+	{
+		return;
+	}
 }
