@@ -1,9 +1,14 @@
 #include <stdio.h>
 
 
+/**
+ * main - prints the file name of the programe 
+ *
+ * Returns : always zero
+ */
+
 int main(void) {
-    printf("Size = %d\n", SIZE);
-    printf("Pi = %f\n", PI);
+    printf("%s\n", PI__FILE__);
 
     return 0;
 }
