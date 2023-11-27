@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "constants.h"
 
-int main() {
+
+int main(void) {
     printf("Size = %d\n", SIZE);
     printf("Pi = %f\n", PI);
 
