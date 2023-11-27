@@ -1,15 +1,6 @@
-#include <stdio.h>  
-#include <stdlib.h>
+#ifndef _HEADER_
+#define _HEADER_
 
+#define ABS(x) ((x) < 0 ? -(x) : (x))
 
-/**
- *  function-like macro that computes the absolute value of a number
- *
- *  Returns: always zero
- */
-
-int main()  
-{   
-    printf (" x %d ", abs (x));   
-    return 0;  
-}  
+#endif 
