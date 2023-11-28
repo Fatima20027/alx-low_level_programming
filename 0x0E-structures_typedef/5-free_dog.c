@@ -2,20 +2,23 @@
 #include "dog.h"
 
 
+/**
+ * free-dog - ...
+ * @d : ...
+ *
+ * Return: Nothing
+ */
 
-
-// Define the struct
-typedef struct {
-    char name;
-    int age;
-    char owner;
-} dog_t;
-
-// Function to free a dog
 void free_dog(dog_t *d) {
-    // Check if the pointer is not NULL before freeing
-    if (d != NULL) {
-        free(d);
-    }
+
+	if (d != NULL)
+	{
+		free(d->name);
+		free(d->owner);
+		free(d);
+
+	}
+
+
 }
 
