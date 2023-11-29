@@ -1,30 +1,23 @@
 #include "function_pointers.h"
 
 /**
-  * int_index - ...
+  * array_iterator - ...
   * @array: ...
   * @size: ...
-  * @cmp: ...
+  * @action: ...
   *
   * Return: ...
   */
-int int_index(int *array, int size, int (*cmp)(int))
+void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	int i = 0;
+	unsigned int i = 0;
 
-	if (size > 0)
+	if (array != NULL && action != NULL && size > 0)
 	{
-		if (array != NULL && cmp != NULL)
+		while (i < size)
 		{
-			while (i < size)
-			{
-				if (cmp(array[i]))
-					return (i);
-
-				i++;
-			}
+			action(array[i]);
+			i++;
 		}
 	}
-
-	return (-1);
 }
