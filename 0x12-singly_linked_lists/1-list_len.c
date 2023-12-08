@@ -2,33 +2,24 @@
 #include <stdlib.h>
 #include "lists.h"
 
-/**Define the structure for a node in the linked list
- * Define the linked list structure
- * Function to return the number of elements in the linked list
- * Return the total count
- */
-
-size_t list_len(const list_t *h) {
-	struct Node {
-    int data;
-    struct Node* next;
-};
-
-typedef struct Node list_t;
+/** list_len - Show the number of elements of a list
+  * @h: A linked list
+  *
+  * Return: ...
+  */
 
 
 size_t list_len(const list_t *h) {
-    size_t count = 0;
+    size_t count = 0; // Initialize count to 0
 
+    // Traverse the list
     while (h != NULL) {
         count++;       // Increment count for each node
         h = h->next;    // Move to the next node
     }
 
-
-    return count;
-
-
+    return count; // Return the total count
 }
+
 
 
