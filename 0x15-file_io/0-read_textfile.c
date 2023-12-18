@@ -1,35 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "main.h"
+#include <stdlib.h>
 
-ssize_t read_textfile(const char *filename, size_t letters) {
-    if (filename == NULL) {
-        return 0;  // If filename is NULL, return 0
-    }
+/**
+ * read_textfile- Read text file print to STDOUT.
+ * @filename: text file being read
+ * @letters: number of letters to be read
+ * Return: w- actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
+ */
+ssize_t read_textfile(const char *filename, size_t letters)
+{
+	char *buf;
+	ssize_t fd;
+	ssize_t w;
+	ssize_t t;
 
-    int fileDescriptor = open(filename, O_RDONLY);
-    if (fileDescriptor == -1) {
-        return 0;  // If the file cannot be opened, return 0
-    }
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	buf = malloc(sizeof(char) * letters);
+	t = read(fd, buf, letters);
+	w = write(STDOUT_FILENO, buf, t);
 
-    char *buffer = (char *)malloc(sizeof(char) * letters);
-    if (buffer == NULL) {
-        close(fileDescriptor);
-        return 0;  // Memory allocation failure, return 0
-    }
+	free(buf);
+	close(fd);
+	return (w);
+}
 
-    ssize_t bytesRead = read(fileDescriptor, buffer, letters);
-    if (bytesRead == -1) {
-        free(buffer);
-        close(fileDescriptor);
-        return 0;  // If read fails, return 0
-    }
-
-    ssize_t bytesWritten = write(STDOUT_FILENO, buffer, bytesRead);
-    if (bytesWritten == -1 || bytesWritten != bytesRead) {
-        free(buffer);
-        close(fileDescriptor);
-        return 0;  // If write fails or doesn't write the expected amount, return 0
-    }
