@@ -7,18 +7,17 @@
   *
   * Return: string 
   */
-
 char *_strdup(char *str) 
 {	
 	int i; 
 	int size;
 	char *s;
 
-    	if (str == NULL) 
+	if (str == NULL) 
 	{
-        	return (NULL);
+		return (NULL);
 	}
-   	for (size = 0; str[size] != '\0'; size++)
+   	for (size = 0; str[size] != '\0'; size++);
     	s = malloc(size * sizeof(char) + 1); 
     	if (s == NULL) 
 	{
