@@ -11,7 +11,7 @@ int main()
 {
 	int f;
 	f = __FILE__;
-	printf("%d\n", f);
+	printf("%s\n", f);
 
 	return (0);
 }
