@@ -7,11 +7,9 @@
  *
  * Return: Always 0.
  */
-int main()
+int main(void)
 {
-	int f;
-	f = __FILE__;
-	printf("%s\n", f);
+	printf("%s\n", __FILE__);
 
 	return (0);
 }
