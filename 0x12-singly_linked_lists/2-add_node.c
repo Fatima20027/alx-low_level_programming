@@ -1,5 +1,5 @@
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
@@ -9,25 +9,43 @@
   *
   * Return: The address of the new list or NULL if it failed
   */
-
 list_t *add_node(list_t **head, const char *str)
 {
-	if (str == NULL)
-		return (NULL);
+	list_t *temp;
 
-	list_t  *newNode = malloc(sizeof(struct node));
-
-	if (newNode == NULL)
-		return (NULL);
-
-	new_node->str = strdup(str);
-
-	if (newNode->str == NULL)
+	if (head != NULL && str != NULL)
 	{
-		free(newNode);
-		return (NULL);
+		temp = malloc(sizeof(list_t));
+		if (temp == NULL)
+			return (NULL);
+
+		temp->str = strdup(str);
+		temp->len = _strlen(str);
+		temp->next = *head;
+
+		*head = temp;
+
+		return (temp);
 	}
-	newNode->next = *head;
-	*head = newNode;
-	return (newNone);
+
+	return (0);
+}
+
+/**
+  * _strlen - Returns the length of a string
+  * @s: String to count
+  *
+  * Return: String length
+  */
+int _strlen(const char *s)
+{
+	int c = 0;
+
+	while (*s)
+	{
+		s++;
+		c++;
+	}
+
+	return (c);
 }
