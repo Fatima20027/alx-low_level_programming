@@ -7,29 +7,8 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int temp = n;
+	if (n > 1)
+	print_binary(n >> 1);
 
-	int size = 0, i;
-
-	if (n == 0)
-	{
-		_putchar('0');
-		_putchar('\n');
-			return;
-	}
-
-	while (temp > 0)
-	{
-		temp = temp >> 1;
-		size++;
-	}
-
-	for (i = size - 1; i >= 0; i--)
-	{
-		if ((n >> i) & 1)
-			_putchar('1');
-		else
-			_putchar('0');
-	}
-	_putchar('\n');
+	_putchar((n & 1) + '0');
 }
